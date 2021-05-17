@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { FlexFunc, color_subtle, color_dark, CardContainer } from "./styles";
 import { Arrow } from "./assets/icons";
+import Home from './components/home';
 
 function App() {
   const [incrementing, setIncrementing] = useState(true);
@@ -25,7 +26,7 @@ function App() {
   return (
     <AppContainer>
       <SiteContent>
-        <CardContainer>Emily Abrahart</CardContainer>
+        <Home />
         <NavigationButton
           counter={counter}
           incrementing={incrementing}

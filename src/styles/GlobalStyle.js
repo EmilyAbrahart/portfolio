@@ -8,6 +8,7 @@ ${normalize()};
 }
 body {
     font-family: 'Roboto', sans-serif;
+    color: '#1C1B20';
     background-color: '#F8F8F8';
 }
 `;
