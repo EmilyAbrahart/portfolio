@@ -64,11 +64,3 @@ const HomeRight = styled(HomeSection)`
     }
   }
 `;
-
-const TaglineContainer = styled.div`
-  padding-bottom: 8rem;
-  text-align: right;
-  position: absolute;
-  transition: all 0.5s ease-out;
-  bottom: 2rem;
-`;

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FlexFunc, color_subtle, color_dark, CardContainer } from "./styles";
+import { FlexFunc, color_subtle, color_dark } from "./styles";
 import { Arrow } from "./assets/icons";
 import Home from './components/home';
+import Nav from './components/nav';
+import About from './components/about';
 
 function App() {
   const [incrementing, setIncrementing] = useState(true);
@@ -26,7 +28,9 @@ function App() {
   return (
     <AppContainer>
       <SiteContent>
+        <Nav />
         <Home />
+        <About />
         <NavigationButton
           counter={counter}
           incrementing={incrementing}
@@ -48,6 +52,7 @@ const AppContainer = styled.div`
   ${FlexFunc("column", "center", "center")};
   padding: 2rem;
   overflow: hidden;
+  position: relative;
 `;
 
 const SiteContent = styled.div`

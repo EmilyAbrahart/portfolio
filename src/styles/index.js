@@ -24,8 +24,13 @@ export const FlexFunc = (direction, justifyC, alignI) => {
   `;
 };
 
-export const CardContainer = styled.div`
+export const CardContainer = styled.section`
   height: 100%;
   width: 100%;
   ${FlexFunc("column", "center", "center")}
+
+  h2 {
+    letter-spacing: 0.5rem;
+  }
 `;
+
