@@ -28,6 +28,7 @@ export const CardContainer = styled.section`
   height: 100%;
   width: 100%;
   ${FlexFunc("column", "center", "center")}
+  position: absolute;
 
   h2 {
     letter-spacing: 0.5rem;
