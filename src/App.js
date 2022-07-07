@@ -12,6 +12,8 @@ function App() {
     <AppContainer>
       <Home />
       <About />
+      <Projects />
+      <Contact />
     </AppContainer>
   );
 }

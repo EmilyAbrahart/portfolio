@@ -9,17 +9,21 @@ import {
   HalfSection,
   SectionTitle,
   PinkSpan,
-  flex
+  flex,
 } from "../styles";
 
 function About() {
   return (
     <AboutContainer>
       <AboutHalf>
-        <SectionTitle>ABOUT<PinkSpan>.</PinkSpan></SectionTitle>
+        <SectionTitle>
+          ABOUT<PinkSpan>.</PinkSpan>
+        </SectionTitle>
       </AboutHalf>
       <AboutHalf>
-        <AboutTagline><PinkSpan>"</PinkSpan>I make internet things.<PinkSpan>"</PinkSpan></AboutTagline>
+        <AboutTagline>
+          <PinkSpan>"</PinkSpan>I make internet things.<PinkSpan>"</PinkSpan>
+        </AboutTagline>
         <AboutTextContainer>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit
           amet rhoncus quam. Fusce interdum et odio vel blandit. Suspendisse
@@ -43,7 +47,7 @@ const AboutContainer = styled(Section)`
 const AboutHalf = styled(HalfSection)`
   background-color: ${color_dark};
   color: ${color_subtle};
-  ${flex('column')};
+  ${flex("column")};
 `;
 
 const AboutTagline = styled.div`

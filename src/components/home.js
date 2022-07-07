@@ -5,30 +5,25 @@ import {
   color_accent,
   Section,
   HalfSection,
-  flex,
+  PinkSpan,
 } from "../styles";
 
 function Home() {
   return (
-    <HomeContainer>
+    <Section>
       <HomeLeft></HomeLeft>
       <HomeRight>
         <h1>
           EMILY ABRA
-          <br/>
-          HART<span>.</span>
+          <br />
+          HART<PinkSpan>.</PinkSpan>
         </h1>
       </HomeRight>
-    </HomeContainer>
+    </Section>
   );
 }
 
 export default Home;
-
-const HomeContainer = styled(Section)`
-  ${flex("row")};
-  padding: 0;
-`;
 
 const HomeLeft = styled(HalfSection)`
   background-color: ${color_accent};
@@ -40,7 +35,7 @@ const HomeRight = styled(HalfSection)`
   h1 {
     font-size: 11rem;
     span {
-        color: ${color_accent};
+      color: ${color_accent};
     }
   }
 `;
