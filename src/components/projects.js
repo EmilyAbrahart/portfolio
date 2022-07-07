@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { ReactComponent as ProjectImg } from "../assets/projects.svg";
 import {
   color_dark,
   color_subtle,
@@ -14,7 +15,9 @@ import {
 function Projects() {
   return (
     <Section>
-      <HalfSection></HalfSection>
+      <HalfSection>
+        <ProjectImg />
+      </HalfSection>
       <HalfSection>
         <SectionTitle>
           PROJECTS<PinkSpan>.</PinkSpan>

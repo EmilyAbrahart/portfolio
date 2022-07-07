@@ -8,5 +8,6 @@ export const flex = (
     flex-direction: ${direction};
     justify-content: ${justifyContent};
     align-items: ${alignItems};
+    flex-wrap: wrap;
     `;
 };
