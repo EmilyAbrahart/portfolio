@@ -6,9 +6,10 @@ export const GlobalStyle = createGlobalStyle`
 ${normalize()};
 * {
     box-sizing: border-box;
+    margin: 0;
 }
 body {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Roboto', sans-serif;
     color: ${color_dark};
     background-color: ${color_subtle};
 }
