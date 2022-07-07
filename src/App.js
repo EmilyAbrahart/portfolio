@@ -1,13 +1,27 @@
 import React from "react";
-import styled from 'styled-components';
+import styled from "styled-components";
+import { color_dark } from "./styles/colors";
+import Home from "./components/home";
+import About from "./components/about";
+import Projects from "./components/projects";
+import Contact from "./components/contact";
+import Nav from "./components/nav";
 
 function App() {
-  return <AppContainer>App</AppContainer>;
+  return (
+    <AppContainer>
+      <Home />
+      <About />
+      <Projects />
+      <Contact />
+    </AppContainer>
+  );
 }
 
 export default App;
 
 const AppContainer = styled.div`
-width: 100vh;
-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  background-color: ${color_dark};
 `;
