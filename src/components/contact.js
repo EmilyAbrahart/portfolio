@@ -61,6 +61,7 @@ function Contact() {
       </ContactHalf>
       <ContactHalf>
         <ContactForm onSubmit={onFormSubmit}>
+          <input type='hidden' name='form-name' value='contact'/>
           <input
             type="text"
             name="name"
