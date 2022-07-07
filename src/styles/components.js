@@ -12,6 +12,7 @@ export const Section = styled.section`
 export const HalfSection = styled(Section)`
   width: 50%;
   padding: 1rem;
+  overflow: hidden;
 `;
 
 export const SectionTitle = styled.h1`
