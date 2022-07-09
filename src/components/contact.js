@@ -37,18 +37,28 @@ function Contact() {
   };
 
   const onFormSubmit = (e) => {
+
+    if (!name || !email || !message) {
+      setFormSubmitted('Please complete all fields.')
+      e.preventDefault();
+      return;
+    }
     // for netlify form handling
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", name, email, message }),
     })
-      .then(() => setFormSubmitted("Your message has been sent."))
+      .then(() => {
+        setFormSubmitted("Message sent.");
+        setName("");
+        setEmail("");
+        setMessage("");
+      })
       .catch((error) => {
         setFormSubmitted(
           "Your message could not be sent. Please try again later."
         );
-        console.log(error);
       });
     e.preventDefault();
   };
@@ -61,7 +71,7 @@ function Contact() {
       </ContactHalf>
       <ContactHalf>
         <ContactForm onSubmit={onFormSubmit}>
-          <input type='hidden' name='form-name' value='contact'/>
+          <input type="hidden" name="form-name" value="contact" />
           <input
             type="text"
             name="name"
@@ -83,6 +93,9 @@ function Contact() {
             onChange={onFormElementChange}
           ></textarea>
           <button type="submit">SEND</button>
+          {formSubmitted ? (
+            <SubmissionMessage>{formSubmitted}</SubmissionMessage>
+          ) : null}
         </ContactForm>
       </ContactHalf>
     </ContactContainer>
@@ -112,15 +125,16 @@ const ContactForm = styled.form`
     background-color: ${color_dark};
     color: ${color_subtle};
     border: none;
-    border-bottom: 2px solid ${color_accent};
+    border-bottom: 2px solid ${color_subtle};
     margin: 1rem;
     padding: 0.5rem;
     letter-spacing: 0.2rem;
     line-height: 1.5rem;
-    transition: border-color 0.3s ease-in;
+    transition: border-color 0.3s ease;
+
     &:focus {
       outline: none;
-      border-bottom-color: ${color_subtle};
+      border-bottom-color: ${color_accent};
     }
   }
 
@@ -130,14 +144,14 @@ const ContactForm = styled.form`
 
   button {
     background-color: ${color_dark};
-    color: ${color_accent};
-    border: 2px solid ${color_accent};
+    color: ${color_subtle};
+    border: 2px solid ${color_subtle};
     letter-spacing: 0.2rem;
     line-height: 1.5rem;
     padding: 0.5rem 3rem;
     margin: 1rem;
-    transition: background-color 0.2s ease-in;
-    transition: color 0.2s ease-in;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
 
     &:hover {
       cursor: pointer;
@@ -149,8 +163,13 @@ const ContactForm = styled.form`
     }
 
     &:active {
-      background-color: ${color_accent};
+      background-color: ${color_subtle};
       color: ${color_dark};
     }
   }
+`;
+
+const SubmissionMessage = styled.div`
+  color: ${color_subtle};
+  text-align: center;
 `;
