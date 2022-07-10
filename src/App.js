@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { color_dark } from "./styles/colors";
+import { colors } from "./styles";
 import Home from "./components/home";
 import About from "./components/about";
 import Projects from "./components/projects";
@@ -23,5 +23,5 @@ export default App;
 const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${color_dark};
+  background-color: ${colors.dark};
 `;

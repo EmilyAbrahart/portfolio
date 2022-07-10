@@ -1,6 +1,6 @@
 import { normalize } from "polished";
 import { createGlobalStyle } from "styled-components";
-import { color_dark, color_subtle } from "./colors";
+import { dark} from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize()};
@@ -10,7 +10,7 @@ ${normalize()};
 }
 body {
     font-family: 'Roboto', sans-serif;
-    color: ${color_dark};
-    background-color: ${color_subtle};
+    color: ${dark};
+    background-color: ${dark};
 }
 `;

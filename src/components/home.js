@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  color_subtle,
-  color_accent,
-  Section,
-  HalfSection,
-  PinkSpan,
-} from "../styles";
+import { colors, Section, HalfSection, PinkSpan } from "../styles";
 
 function Home() {
   return (
@@ -26,16 +20,16 @@ function Home() {
 export default Home;
 
 const HomeLeft = styled(HalfSection)`
-  background-color: ${color_accent};
+  background-color: ${colors.accent};
 `;
 
 const HomeRight = styled(HalfSection)`
-  background-color: ${color_subtle};
+  background-color: ${colors.subtle};
   text-align: center;
   h1 {
     font-size: 11rem;
     span {
-      color: ${color_accent};
+      color: ${colors.accent};
     }
   }
 `;
