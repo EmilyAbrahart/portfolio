@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {
-  color_dark,
-  color_dark_accent,
-  color_subtle,
-  color_accent,
+  colors,
   Section,
   HalfSection,
   SectionTitle,
@@ -41,22 +38,24 @@ function About() {
 export default About;
 
 const AboutContainer = styled(Section)`
-  background-color: ${color_dark};
+  background-color: ${colors.dark};
 `;
 
 const AboutHalf = styled(HalfSection)`
-  background-color: ${color_dark};
-  color: ${color_subtle};
+  background-color: ${colors.dark};
+  color: ${colors.subtle};
   ${flex("column")};
 `;
 
 const AboutTagline = styled.div`
-  color: ${color_dark_accent};
+  color: ${colors.dark_accent};
   font-size: 4rem;
 `;
 
 const AboutTextContainer = styled.div`
-  color: ${color_subtle};
+  color: ${colors.subtle};
   width: 70%;
   margin-top: 2rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
 `;

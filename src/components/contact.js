@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
-  color_dark,
-  color_subtle,
-  color_accent,
+  colors,
   Section,
   HalfSection,
   SectionTitle,
@@ -37,9 +35,8 @@ function Contact() {
   };
 
   const onFormSubmit = (e) => {
-
     if (!name || !email || !message) {
-      setFormSubmitted('Please complete all fields.')
+      setFormSubmitted("Please complete all fields.");
       e.preventDefault();
       return;
     }
@@ -105,12 +102,12 @@ function Contact() {
 export default Contact;
 
 const ContactContainer = styled(Section)`
-  background-color: ${color_dark};
+  background-color: ${colors.dark};
 `;
 
 const ContactHalf = styled(HalfSection)`
-  background-color: ${color_dark};
-  color: ${color_subtle};
+  background-color: ${colors.dark};
+  color: ${colors.subtle};
   ${flex("column")};
 `;
 
@@ -122,10 +119,10 @@ const ContactForm = styled.form`
   input,
   textarea {
     width: 80%;
-    background-color: ${color_dark};
-    color: ${color_subtle};
+    background-color: ${colors.dark};
+    color: ${colors.subtle};
     border: none;
-    border-bottom: 2px solid ${color_subtle};
+    border-bottom: 2px solid ${colors.subtle};
     margin: 1rem;
     padding: 0.5rem;
     letter-spacing: 0.2rem;
@@ -134,7 +131,7 @@ const ContactForm = styled.form`
 
     &:focus {
       outline: none;
-      border-bottom-color: ${color_accent};
+      border-bottom-color: ${colors.accent};
     }
   }
 
@@ -143,9 +140,9 @@ const ContactForm = styled.form`
   }
 
   button {
-    background-color: ${color_dark};
-    color: ${color_subtle};
-    border: 2px solid ${color_subtle};
+    background-color: ${colors.dark};
+    color: ${colors.subtle};
+    border: 2px solid ${colors.subtle};
     letter-spacing: 0.2rem;
     line-height: 1.5rem;
     padding: 0.5rem 3rem;
@@ -163,13 +160,13 @@ const ContactForm = styled.form`
     }
 
     &:active {
-      background-color: ${color_subtle};
-      color: ${color_dark};
+      background-color: ${colors.subtle};
+      color: ${colors.dark};
     }
   }
 `;
 
 const SubmissionMessage = styled.div`
-  color: ${color_subtle};
+  color: ${colors.subtle};
   text-align: center;
 `;
