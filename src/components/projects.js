@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as ProjectImg } from "../assets/projects.svg";
+import CarouselIndicator from "../assets/CarouselIndicator";
+import Project from "./project";
 import {
   colors,
   flex,
@@ -12,6 +14,7 @@ import {
 } from "../styles";
 import { ReactComponent as LeftArrow } from "../assets/LeftArrow.svg";
 import { ReactComponent as RightArrow } from "../assets/RightArrow.svg";
+import { ProjectData } from "../data.js";
 
 function Projects() {
   const [slide, setSlide] = useState(0);
@@ -38,6 +41,12 @@ function Projects() {
         <LeftButton onClick={previousSlide} slide={slide}>
           <LeftArrow />
         </LeftButton>
+        <IndicatorContainer slide={slide}>
+          <CarouselIndicator slideNumber={1} slide={slide} />
+          <CarouselIndicator slideNumber={2} slide={slide} />
+          <CarouselIndicator slideNumber={3} slide={slide} />
+          <CarouselIndicator slideNumber={4} slide={slide} />
+        </IndicatorContainer>
         <RightButton onClick={nextSlide} slide={slide}>
           <RightArrow />
         </RightButton>
@@ -58,19 +67,9 @@ function Projects() {
           </ProjectsHalfSection>
         </ProjectsSection>
 
-        <ProjectsSection>
-          <SectionTitle>Title 1</SectionTitle>
-        </ProjectsSection>
-
-        <ProjectsSection>
-          <SectionTitle>Title 2</SectionTitle>
-        </ProjectsSection>
-        <ProjectsSection>
-          <SectionTitle>Title 3</SectionTitle>
-        </ProjectsSection>
-        <ProjectsSection>
-          <SectionTitle>Title 4</SectionTitle>
-        </ProjectsSection>
+        {ProjectData.map((project) => {
+          return <Project project={project} key={project.id} slide={slide}/>;
+        })}
       </CarouselInner>
     </CarouselContainer>
   );
@@ -99,7 +98,7 @@ const CarouselInner = styled.div`
   min-width: 100vw;
   height: 100vh;
   transform: ${(props) => `translateX(-${props.slide * 100}vw)`};
-  animation: transform 1s ease;
+  transition: transform 0.5s ease-out;
   flex-wrap: nowrap;
 `;
 
@@ -114,19 +113,6 @@ const ProjectsButton = styled(Button)`
   }
 `;
 
-const LeftButton = styled.button`
-  z-index: 100;
-  border: none;
-  background-color: transparent;
-  display: ${props => props.slide === 0 ? 'none' : 'block'};
-`;
-const RightButton = styled.button`
-  z-index: 101;
-  border: none;
-  background-color: transparent;
-  display: ${props => props.slide === 0 || props.slide === 4 ? 'none' : 'block'};
-`;
-
 const ButtonContainer = styled.div`
   position: absolute;
   width: 100%;
@@ -135,4 +121,28 @@ const ButtonContainer = styled.div`
   border: 1px solid red;
   ${flex("row", "space-between", "center")};
   padding: 2rem;
+`;
+
+const LeftButton = styled.button`
+  z-index: 100;
+  border: none;
+  background-color: transparent;
+  opacity: ${(props) => (props.slide === 0 ? "0" : "100%")};
+  transition: opacity 0.5s ease;
+`;
+const RightButton = styled.button`
+  z-index: 101;
+  border: none;
+  background-color: transparent;
+  opacity: ${(props) =>
+    props.slide === 0 || props.slide === 4 ? "0" : "100%"};
+  transition: opacity 0.5s ease;
+`;
+
+const IndicatorContainer = styled.div`
+  ${flex()};
+  align-self: flex-end;
+  z-index: 99;
+  opacity: ${(props) => (props.slide === 0 ? "0" : "100%")};
+  transition: opacity 0.5s ease;
 `;
