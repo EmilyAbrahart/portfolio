@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "../styles";
 
-function CarouselIndicator({ slideNumber, slide }) {
+export const CarouselIndicator = ({ slideNumber, slide }) => {
   return (
     <IndicatorSVG
       width="20"
@@ -12,25 +11,18 @@ function CarouselIndicator({ slideNumber, slide }) {
       slideNumber={slideNumber}
       slide={slide}
     >
-      <circle
-        cx="10.0"
-        cy="10.0"
-        r="9"
-        fill="#F8F8F8"
-        stroke="#FF5851"
-        strokeWidth="2"
-      />
+      <circle cx="10.0" cy="10.0" r="9" strokeWidth="2" />
     </IndicatorSVG>
   );
-}
+};
 
-export default CarouselIndicator;
 
 const IndicatorSVG = styled.svg`
   circle {
     fill: ${(props) =>
-      props.slideNumber === props.slide ? colors.accent : colors.subtle};
+      props.slideNumber === props.slide ? props.theme.muted : props.theme.base};
     transition: fill 0.3s ease-in;
+    stroke: ${(props) => props.theme.muted};
   }
   margin: 0 0.5rem;
 `;

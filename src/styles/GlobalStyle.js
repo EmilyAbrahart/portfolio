@@ -1,6 +1,5 @@
 import { normalize } from "polished";
 import { createGlobalStyle } from "styled-components";
-import { dark} from "./colors";
 
 export const GlobalStyle = createGlobalStyle`
 ${normalize()};
@@ -10,7 +9,12 @@ ${normalize()};
 }
 body {
     font-family: 'Roboto', sans-serif;
-    color: ${dark};
-    background-color: ${dark};
+    color: ${props => props.theme.text};
+    background-color: ${props => props.theme.base};
+}
+
+h1 {
+    font-family: 'Pier Sans';
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 `;

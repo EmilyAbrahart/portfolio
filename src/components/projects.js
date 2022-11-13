@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { ReactComponent as ProjectImg } from "../assets/projects.svg";
-import CarouselIndicator from "../assets/CarouselIndicator";
 import Project from "./project";
 import {
-  colors,
   flex,
   Section,
   HalfSection,
   SectionTitle,
-  PinkSpan,
+  SectionContent,
   Button,
 } from "../styles";
-import { ReactComponent as LeftArrow } from "../assets/LeftArrow.svg";
-import { ReactComponent as RightArrow } from "../assets/RightArrow.svg";
+import {CarouselIndicator, LeftArrow, RightArrow, ProjectsImg} from "../assets";
 import { ProjectData } from "../data.js";
 
 function Projects() {
@@ -54,21 +50,21 @@ function Projects() {
 
       <CarouselInner slide={slide}>
         <ProjectsSection>
-          <ProjectsHalfSection>
-            <ProjectImg />
-          </ProjectsHalfSection>
-          <ProjectsHalfSection>
-            <SectionTitle>
-              PROJECTS<PinkSpan>.</PinkSpan>
-            </SectionTitle>
-            <ProjectsButton type="button" onClick={buttonClickHandler}>
-              Explore
-            </ProjectsButton>
-          </ProjectsHalfSection>
+          <HalfSection>
+            <SectionContent>
+            <ProjectsImg />
+            </SectionContent>
+          </HalfSection>
+          <HalfSection>
+              <SectionTitle>PROJECTS</SectionTitle>
+              <ProjectsButton type="button" onClick={buttonClickHandler}>
+                Explore
+              </ProjectsButton>
+          </HalfSection>
         </ProjectsSection>
 
         {ProjectData.map((project) => {
-          return <Project project={project} key={project.id} slide={slide}/>;
+          return <Project project={project} key={project.id} slide={slide} />;
         })}
       </CarouselInner>
     </CarouselContainer>
@@ -78,13 +74,8 @@ function Projects() {
 export default Projects;
 
 const ProjectsSection = styled(Section)`
-  background-color: ${colors.subtle};
-  min-width: 100%;
   height: 100%;
-`;
-
-const ProjectsHalfSection = styled(HalfSection)`
-  background-color: ${colors.subtle};
+  min-width: 100%;
 `;
 
 const CarouselContainer = styled.div`
@@ -103,13 +94,11 @@ const CarouselInner = styled.div`
 `;
 
 const ProjectsButton = styled(Button)`
-  background-color: ${colors.dark};
-  color: ${colors.subtle};
+  background-color: ${props => props.theme.accents.rose};
+  color: ${props => props.theme.surface};
 
   &:active {
-    border: 2px solid ${colors.dark};
-    background-color: ${colors.subtle};
-    color: ${colors.dark};
+    background-color: ${props => props.theme.accents.love};
   }
 `;
 

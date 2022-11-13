@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import {
-  colors,
   Section,
   HalfSection,
   SectionTitle,
-  PinkSpan,
+  SectionContent,
+  Button,
   flex,
 } from "../styles";
 
@@ -60,56 +60,56 @@ function Contact() {
     e.preventDefault();
   };
   return (
-    <ContactContainer>
-      <ContactHalf>
-        <SectionTitle>
-          CONTACT ME<PinkSpan>.</PinkSpan>
-        </SectionTitle>
-      </ContactHalf>
-      <ContactHalf>
-        <ContactForm onSubmit={onFormSubmit}>
-          <input type="hidden" name="form-name" value="contact" />
-          <input
-            type="text"
-            name="name"
-            placeholder="NAME"
-            value={name}
-            onChange={onFormElementChange}
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="EMAIL"
-            value={email}
-            onChange={onFormElementChange}
-          />
-          <textarea
-            name="message"
-            placeholder="MESSAGE..."
-            value={message}
-            onChange={onFormElementChange}
-          ></textarea>
-          <button type="submit">SEND</button>
-          {formSubmitted ? (
-            <SubmissionMessage>{formSubmitted}</SubmissionMessage>
-          ) : null}
-        </ContactForm>
-      </ContactHalf>
-    </ContactContainer>
+    <Section>
+      <HalfSection>
+        <SectionTitle>CONTACT ME</SectionTitle>
+      </HalfSection>
+      <HalfSection>
+        <SectionContent>
+          <ContactForm onSubmit={onFormSubmit}>
+            <input type="hidden" name="form-name" value="contact" />
+            <input
+              type="text"
+              name="name"
+              placeholder="NAME"
+              value={name}
+              onChange={onFormElementChange}
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="EMAIL"
+              value={email}
+              onChange={onFormElementChange}
+            />
+            <textarea
+              name="message"
+              placeholder="MESSAGE..."
+              value={message}
+              onChange={onFormElementChange}
+            ></textarea>
+            <FormButton type="submit">SEND</FormButton>
+            {formSubmitted ? (
+              <SubmissionMessage>{formSubmitted}</SubmissionMessage>
+            ) : null}
+          </ContactForm>
+        </SectionContent>
+      </HalfSection>
+    </Section>
   );
 }
 
 export default Contact;
 
-const ContactContainer = styled(Section)`
-  background-color: ${colors.dark};
-`;
+// const ContactContainer = styled(Section)`
+//   background-color: ${colors.dark};
+// `;
 
-const ContactHalf = styled(HalfSection)`
-  background-color: ${colors.dark};
-  color: ${colors.subtle};
-  ${flex("column")};
-`;
+// const ContactHalf = styled(HalfSection)`
+//   background-color: ${colors.dark};
+//   color: ${colors.subtle};
+//   ${flex("column")};
+// `;
 
 const ContactForm = styled.form`
   ${flex("column")};
@@ -119,10 +119,11 @@ const ContactForm = styled.form`
   input,
   textarea {
     width: 80%;
-    background-color: ${colors.dark};
-    color: ${colors.subtle};
+    background-color: ${(props) => props.theme.surface};
+    color: ${(props) => props.theme.text};
     border: none;
-    border-bottom: 2px solid ${colors.subtle};
+    border-bottom: 2px solid;
+    border-bottom-color: ${(props) => props.theme.text};
     margin: 1rem;
     padding: 0.5rem;
     letter-spacing: 0.2rem;
@@ -131,42 +132,25 @@ const ContactForm = styled.form`
 
     &:focus {
       outline: none;
-      border-bottom-color: ${colors.accent};
+      border-bottom-color: ${(props) => props.theme.foam};
     }
   }
 
   textarea {
     height: 5rem;
   }
+`;
 
-  button {
-    background-color: ${colors.dark};
-    color: ${colors.subtle};
-    border: 2px solid ${colors.subtle};
-    letter-spacing: 0.2rem;
-    line-height: 1.5rem;
-    padding: 0.5rem 3rem;
-    margin: 1rem;
-    transition: background-color 0.2s ease;
-    transition: color 0.2s ease;
+const FormButton = styled(Button)`
+  background-color: ${(props) => props.theme.accents.foam};
+  color: ${(props) => props.theme.base};
 
-    &:hover {
-      cursor: pointer;
-    }
-
-    &:focus,
-    &:active {
-      outline: none;
-    }
-
-    &:active {
-      background-color: ${colors.subtle};
-      color: ${colors.dark};
-    }
+  &:active {
+    background-color: ${(props) => props.theme.accents.pine};
   }
 `;
 
 const SubmissionMessage = styled.div`
-  color: ${colors.subtle};
+  color: ${(props) => props.theme.accents.foam};
   text-align: center;
 `;

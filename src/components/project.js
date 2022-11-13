@@ -2,21 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import {
   flex,
-  colors,
-  Section,
   HalfSection,
   SectionTitle,
-  PinkSpan,
+  ProjectSection
 } from "../styles";
 
 function Project({ project, slide }) {
   return (
     <ProjectSection>
-      <ProjectHalfSection></ProjectHalfSection>
-      <ProjectHalfSection>
+      <HalfSection></HalfSection>
+      <HalfSection>
         <ProjectTitle>
           {project.name.toUpperCase()}
-          <PinkSpan>.</PinkSpan>
         </ProjectTitle>
 
         <ProjectInfo slide={slide} id={project.id}>
@@ -31,22 +28,12 @@ function Project({ project, slide }) {
             })}
           </CategoryContainer>
         </ProjectInfo>
-      </ProjectHalfSection>
+      </HalfSection>
     </ProjectSection>
   );
 }
 
 export default Project;
-
-const ProjectSection = styled(Section)`
-  background-color: ${colors.subtle};
-  min-width: 100%;
-  height: 100%;
-`;
-
-const ProjectHalfSection = styled(HalfSection)`
-  background-color: ${colors.subtle};
-`;
 
 const ProjectTitle = styled(SectionTitle)`
   font-size: 3rem;
@@ -71,7 +58,7 @@ const CategoryContainer = styled.div`
 `;
 
 const Category = styled.div`
-  border: 2px solid ${colors.dark};
+  border: 2px solid ${props => props.theme.text};
   border-radius: 0.5rem;
   padding: 0.2rem 1rem;
   margin-right: 0.5rem;
@@ -81,13 +68,13 @@ const LinksContainer = styled.div`
   ${flex()};
   a {
     margin: 1rem;
-    color: ${colors.dark};
+    color: ${props => props.theme.text};
     font-size: 1.3rem;
 
     &:focus,
     &:hover,
     &:active {
-      color: ${colors.accent};
+      color: ${props => props.theme.subtle};
     }
   }
 `;
