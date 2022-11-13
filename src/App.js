@@ -11,7 +11,7 @@ import { GlobalStyle } from "./styles/GlobalStyle";
 import { FontStyle } from "./styles/fonts/FontStyle";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const isDarkTheme = theme === "dark";
 
   const toggleTheme = () => {
