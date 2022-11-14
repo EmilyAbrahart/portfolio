@@ -6,11 +6,13 @@ ${normalize()};
 * {
     box-sizing: border-box;
     margin: 0;
+    /* transition: ease 0.5s */
 }
 body {
     font-family: 'Roboto', sans-serif;
     color: ${props => props.theme.text};
     background-color: ${props => props.theme.base};
+    
 }
 
 h1, h3 {

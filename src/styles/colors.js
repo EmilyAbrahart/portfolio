@@ -1,27 +1,31 @@
 export const darkTheme = {
-base: '#191724',
-surface: '#1f1d2e',
-overlay: '#1f1d2e',
+base: '#232136',
+base_dark: '#191724',
+base_dark_transparent: 'rgba(25, 23, 36, 0)',
+surface: '#2a273f',
+overlay: '#393552',
 muted: '#6e6a86',
 subtle: '#908caa',
 text: '#e0def4',
 accents: {
     love: '#eb6f92',
     gold: '#f6c177',
-    rose: '#ebbcba',
-    pine: '#31748f',
+    rose: '#ea9a97',
+    pine: '#3e8fb0',
     foam: '#9ccfd8',
     iris: '#c4a7e7'
 },
 highlights: {
-    low: '#21202e',
-    medium: '#403d52',
-    high: '#524f67'
+    low: '#2a283e',
+    medium: '#44415a',
+    high: '#56526e'
 }
 };
 
 export const lightTheme = {
 base: '#faf4ed',
+base_dark: '#faf4ed',
+base_dark_transparent: 'rgba(250, 244, 237, 0)',
 surface: '#fffaf3',
 overlay: '#f2e9e1',
 muted: '#9893a5',

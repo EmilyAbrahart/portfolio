@@ -12,7 +12,7 @@ export const LogoLeaves = (props) => {
       mirrored={props.mirrored}
     >
       <g>
-        <g className="blue" opacity="0.8" filter="url(#filter1_d_218_157)">
+        <g className="blue" filter="url(#filter1_d_218_157)">
           <path d="M135.927 35.8808L91.6425 56.2769L73.9189 68.2819L71.2989 71.8377L86.0457 102.169L68.5766 75.5324L62.2172 84.1634L54.81 123.988L59.9701 162.363L95.7746 153.475L125.15 136.296C137.535 124.174 143.179 111.46 144.443 96.3699L122.191 85.4479L144.656 92.8818C145.279 77.1202 141.535 58.7491 135.927 35.8808Z" />
           <path d="M60.0757 162.338L95.7755 153.476L125.15 136.297C137.535 124.176 143.179 111.462 144.443 96.3719L122.191 85.4501L144.656 92.8838C145.233 78.2776 142.061 61.4306 137.129 40.8402L60.0757 162.338Z" />
         </g>
@@ -102,11 +102,11 @@ export const LogoLeaves = (props) => {
 const LeavesSVG = styled.svg`
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   g.pink path {
-    fill: ${(props) => props.theme.accents.love};
+    fill: ${(props) => props.theme.accents.rose};
   }
 
   g.blue path {
-    fill: ${(props) => props.theme.accents.pine};
+    fill: ${(props) => props.theme.accents.foam};
   }
 
   transform: ${(props) =>
